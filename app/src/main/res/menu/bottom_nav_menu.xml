@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/profile"
+        android:title="@string/title_profile" />
+    <item
+        android:id="@+id/navigation_QRC"
+        android:icon="@drawable/qrc"
+        android:title="@string/title_QRC" />
+
+    <item
+        android:id="@+id/navigation_needs"
+        android:icon="@drawable/needss"
+        android:title="@string/title_needs" />
+
+    <item
+        android:id="@+id/navigation_add"
+        android:icon="@drawable/add"
+        android:title="@string/title_holiday" />
+
+</menu>

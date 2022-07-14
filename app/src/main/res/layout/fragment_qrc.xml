@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+        <variable
+            name="qrCodeViewModel"
+            type="com.example.madina.qrc.QRCViewModel" />
+        <variable
+            name="qrCodeImageViewVariable"
+            type="android.widget.ImageView" />
+        <variable
+            name="sdnEditTextValue"
+            type="String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.qrc.QRCFragment"
+        android:background="@color/baby_blue">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="125dp" />
+
+
+        <ImageView
+            android:id="@+id/shape_background"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/needs_background"
+            app:layout_constraintHeight_percent="0.3"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/logoback"
+            app:layout_constraintWidth_percent="0.7"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <EditText
+            android:id="@+id/qrcSnd"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintWidth_percent="0.7"
+            app:layout_constraintTop_toTopOf="@id/createQrc"
+            app:layout_constraintBottom_toBottomOf="@id/createQrc"
+            android:background="@drawable/card"
+            android:text="@={qrCodeViewModel.sdn}"
+            android:hint="@string/qrcSndHint"
+            android:gravity="center"
+            android:layout_marginRight="@dimen/_10sdp"
+
+            />
+
+        <ImageView
+            android:id="@+id/qrc_imageview"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/qrc"
+            android:adjustViewBounds="true"
+            />
+
+        <Button
+            android:id="@+id/createQrc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/sign_in_btn_shape"
+            android:text="@string/createQrcBtn"
+            app:layout_constraintEnd_toStartOf="@id/qrcSnd"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/qrc_imageview"
+            android:layout_margin="@dimen/_15sdp"
+
+
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

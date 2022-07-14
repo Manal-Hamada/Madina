@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/purple_500"
+            android:textSize="@dimen/_16sdp"
+            android:layout_gravity="center_horizontal"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:id="@+id/txt"
+            android:layout_marginStart="@dimen/_110sdp"
+            android:textStyle="bold"
+            android:text="@string/vacation_txt" />
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/txt"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:id="@+id/start_date_card">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/_10sdp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_12sdp"
+                    android:id="@+id/start_date"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_16sdp"
+                    android:layout_weight="1"
+                    android:hint="@string/start_date"
+                    android:paddingEnd="@dimen/_10sdp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_weight="0"
+                    android:src="@drawable/calendar_ic" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/start_date_card"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:id="@+id/end_date_card">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/_10sdp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_weight="1"
+                    android:paddingTop="@dimen/_12sdp"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/_16sdp"
+                    android:hint="@string/end_date"
+                    android:id="@+id/end_date"
+                    android:paddingEnd="@dimen/_10sdp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_weight="0"
+                    android:src="@drawable/calendar_ic" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:id="@+id/date_conf_btn"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:padding="@dimen/_5sdp"
+            android:background="@drawable/sign_in_btn_shape"
+            app:layout_constraintTop_toBottomOf="@id/end_date_card"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_30sdp"
+            android:text="@string/confirmation"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_16sdp"
+            android:textStyle="bold" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
