@@ -109,6 +109,9 @@ class WeekEndViewModel: BaseViewModel<WeekEndNavigator>() {
         }
 
 
+    fun get(){}
+
+
 
     private fun addVacationToFireBase() {
     }
