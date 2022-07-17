@@ -7,6 +7,4 @@ interface Navigator {
     fun openRegesterScreen()
     fun openForgetPasswordScreen()
 
-
-
 }

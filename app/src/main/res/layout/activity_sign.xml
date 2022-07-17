@@ -91,9 +91,10 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        app:boxBackgroundColor="@color/zxing_transparent"
                     android:layout_margin="@dimen/_10sdp"
                     android:background="@drawable/edt_txt"
-                    android:padding="@dimen/_6sdp"
+                        android:paddingRight="@dimen/_6sdp"
                     android:textColor="@color/black"
                     android:hint="@string/name_txt" >
 
@@ -105,9 +106,10 @@
                         android:layout_marginEnd="5dp"
                         android:background="@color/white"
                         android:text="@={svm.name}"
+                        android:inputType="text"
                         android:textColor="@color/black"
                         android:textColorHint="@color/gray"
-                        android:textSize="12sp"
+                        android:textSize="14sp"
                         app:hintAnimationEnabled="true" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -130,8 +132,9 @@
                     android:layout_margin="@dimen/_5sdp"
                     android:background="@drawable/edt_txt"
                     android:hint="@string/ssn_hint"
-                    android:padding="@dimen/_6sdp"
+                    android:paddingRight="@dimen/_6sdp"
                     android:textColor="@color/black"
+                    app:boxBackgroundColor="@color/zxing_transparent"
                     android:textColorHint="@color/gray"
                     app:errorEnabled="true">
 
@@ -143,9 +146,11 @@
                         android:layout_marginEnd="5dp"
                         android:background="@color/white"
                         android:text="@={svm.ssn}"
+                        android:inputType="number"
                         android:textColor="@color/black"
                         android:textColorHint="@color/gray"
-                        android:textSize="12sp"
+                        android:textSize="14sp"
+
                         app:hintAnimationEnabled="true" />
 
 
@@ -165,12 +170,14 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_50sdp"
+                    android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_5sdp"
                     android:background="@drawable/edt_txt"
                     android:hint="@string/phone_num"
-                    android:padding="6dp"
+                    android:inputType="phone"
+                    android:paddingRight="@dimen/_6sdp"
                     android:textColor="@color/black"
+                    app:boxBackgroundColor="@color/zxing_transparent"
                     android:textColorHint="@color/gray"
                     app:errorEnabled="true">
 
@@ -185,7 +192,8 @@
                         android:text="@={svm.phoneNum}"
                         android:textColor="@color/black"
                         android:textColorHint="@color/gray"
-                        android:textSize="12sp"
+                        android:textSize="14sp"
+                        android:inputType="phone"
                         app:hintAnimationEnabled="true" />
 
 
@@ -205,12 +213,13 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_50sdp"
+                    android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_5sdp"
                     android:background="@drawable/edt_txt"
                     android:hint="@string/adress"
-                    android:padding="@dimen/_6sdp"
+                    android:paddingRight="@dimen/_6sdp"
                     android:textColor="@color/black"
+                    app:boxBackgroundColor="@color/zxing_transparent"
                     android:textColorHint="@color/gray"
                     app:errorEnabled="true">
 
@@ -222,9 +231,10 @@
                         android:layout_marginEnd="5dp"
                         android:background="@color/white"
                         android:text="@={svm.adress}"
+                        android:inputType="text"
                         android:textColor="@color/black"
                         android:textColorHint="@color/gray"
-                        android:textSize="12sp"
+                        android:textSize="14sp"
                         app:hintAnimationEnabled="true" />
 
 
@@ -244,13 +254,14 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_50sdp"
+                    android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_5sdp"
                     android:background="@drawable/edt_txt"
                     android:hint="@string/email_hint"
-                    android:padding="@dimen/_6sdp"
+                    android:paddingRight="@dimen/_6sdp"
                     android:textColor="@color/black"
                     android:textColorHint="@color/gray"
+                    app:boxBackgroundColor="@color/zxing_transparent"
                     app:errorEnabled="true">
 
 
@@ -264,7 +275,7 @@
                         android:text="@={svm.email}"
                         android:textColor="@color/black"
                         android:textColorHint="@color/gray"
-                        android:textSize="12sp"
+                        android:textSize="14sp"
                         app:hintAnimationEnabled="true" />
 
 
@@ -283,11 +294,13 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_50sdp"
+                    android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_5sdp"
                     android:background="@drawable/edt_txt"
+                    app:boxBackgroundColor="@color/zxing_transparent"
                     android:hint="@string/pass_hint"
-                    android:padding="@dimen/_6sdp"
+                    android:paddingRight="@dimen/_6sdp"
+                    android:textSize="12sp"
                     android:textColor="@color/black"
                     android:textColorHint="@color/gray"
                     app:errorEnabled="true">
@@ -312,38 +325,34 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
                     android:layout_marginEnd="@dimen/_20sdp"
                     android:text="@string/coleage"
                     android:textColor="@color/light_black"
-                    android:textSize="@dimen/_12sdp"
+                    android:textSize="14sp"
                     android:textStyle="bold">
 
                 </TextView>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_50sdp"
-                    android:layout_margin="@dimen/_5sdp"
-                    android:background="@drawable/edt_txt"
-                    android:padding="@dimen/_6sdp"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/gray"
-                    app:errorEnabled="true">
-
-                    <EditText
-                        android:id="@+id/colleage"
+                    <Spinner
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginEnd="5dp"
-                        android:background="@color/white"
-                        android:hint="@string/coleage"
-                        android:text="@={svm.colege}"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/gray"
-                        android:textSize="12sp"
-                        app:hintAnimationEnabled="true" />
-                </com.google.android.material.textfield.TextInputLayout>
+                        android:layout_height="40dp"
+                        android:id="@+id/coleage_spiner"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginStart="10dp"
+                        />
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:paddingRight="5dp"
+                   android:paddingLeft="5dp"
+                   android:textColor="@color/gray"
+                   android:text="________________________________________________"
+                   />
+
+
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -358,10 +367,11 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_50sdp"
+                    android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_5sdp"
                     android:background="@drawable/edt_txt"
-                    android:padding="@dimen/_6sdp"
+                    android:paddingRight="@dimen/_6sdp"
+                    app:boxBackgroundColor="@color/zxing_transparent"
                     android:textColor="@color/black"
                     android:textColorHint="@color/gray"
                     app:errorEnabled="true">
@@ -374,10 +384,11 @@
                         android:layout_marginEnd="5dp"
                         android:background="@color/white"
                         android:hint="@string/room_num"
+                        android:inputType="number"
                         android:text="@={svm.roomNum}"
                         android:textColor="@color/black"
                         android:textColorHint="@color/gray"
-                        android:textSize="12sp"
+                        android:textSize="14sp"
                         app:hintAnimationEnabled="true" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -387,35 +398,21 @@
                     android:layout_gravity="end"
                     android:layout_marginTop="@dimen/_5sdp"
                     android:layout_marginEnd="@dimen/_20sdp"
-                    android:text="@string/building_num"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:text="@string/building_name"
                     android:textColor="@color/light_black"
                     android:textSize="@dimen/_12sdp"
                     android:textStyle="bold" />
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_50sdp"
-                    android:layout_margin="@dimen/_5sdp"
-                    android:background="@drawable/edt_txt"
-                    android:hint="@string/building_num"
-                    android:padding="@dimen/_6sdp"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/gray"
-                    app:errorEnabled="true">
 
-                    <EditText
-                        android:id="@+id/building_num"
+                    <Spinner
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="5dp"
-                        android:layout_marginEnd="5dp"
-                        android:background="@color/white"
-                        android:text="@={svm.buildingNum}"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/gray"
-                        android:textSize="12sp"
-                        app:hintAnimationEnabled="true" />
-                </com.google.android.material.textfield.TextInputLayout>
+                        android:layout_height="40dp"
+                        android:id="@+id/spiner"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginStart="10dp"
+                        />
 
                 <Button
                     android:id="@+id/regester_btn"

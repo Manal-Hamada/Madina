@@ -15,6 +15,8 @@ fun addUserToFirestore(user:AppUser,onSuccessListener:OnSuccessListener<Void>,on
     userDocument.set(user).addOnSuccessListener (onSuccessListener).
             addOnFailureListener(onFaliurListener)
 
+
+
 }
 fun signIn(uid:String,onSuccessListener:OnSuccessListener<DocumentSnapshot>
            ,onfaliurListener:OnFailureListener){

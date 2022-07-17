@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.madina.AddBottomSheetFragment
 import com.example.madina.databinding.FragmentWeekendBinding
+import com.example.madina.needs.NeedsAdapter
+import com.example.madina.needs.NeedsModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class WeekEndFragment:Fragment() {
@@ -15,8 +17,6 @@ class WeekEndFragment:Fragment() {
     private val binding get() = _binding!!
 
     var addButton: FloatingActionButton?=null
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,14 +31,11 @@ class WeekEndFragment:Fragment() {
         return root
 
     }
-
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         addButton = _binding?.addBtn
+        initRecycler()
         setAddBtnClickListener()
-
-
     }
     fun setAddBtnClickListener() {
 
@@ -52,8 +49,28 @@ class WeekEndFragment:Fragment() {
     fun showBottomSheet() {
         val bottomSheet = AddBottomSheetFragment().show(this.parentFragmentManager,"")
 
+    }
+
+    private fun initRecycler() {
+        val adapter :WeekEndAdapter = WeekEndAdapter(getListOfVacations())
+        _binding?.weekendRecycler?.adapter=adapter
 
 
+    }
+
+    private fun getListOfVacations(): List<WeekEndModel> {
+        val vacations = listOf(
+           WeekEndModel(
+                "13/3/2022"
+                ,"15/3/2020"
+
+            ),
+            WeekEndModel (
+                "13/3/2022"
+                ,"15/3/2020"
+
+        ))
+        return vacations
 
     }
 

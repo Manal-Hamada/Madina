@@ -7,4 +7,5 @@ import androidx.fragment.app.FragmentActivity
 interface Navigator {
 
     fun openLoginScreen()
+    fun getContext():Context
 }
