@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Madina/app/src/main/res/drawable/card.xml" value="0.167" />
+        <entry key="..\:/Madina/app/src/main/res/drawable/circle_image_card.xml" value="0.167" />
+        <entry key="..\:/Madina/app/src/main/res/drawable/dot.xml" value="0.1585" />
+        <entry key="..\:/Madina/app/src/main/res/drawable/edt_txt.xml" value="0.1585" />
+        <entry key="..\:/Madina/app/src/main/res/drawable/needs_background.xml" value="0.124" />
+        <entry key="..\:/Madina/app/src/main/res/drawable/person_icon.xml" value="0.167" />
+        <entry key="..\:/Madina/app/src/main/res/drawable/sign_in_btn_shape.xml" value="0.1745" />
+        <entry key="..\:/Madina/app/src/main/res/layout/activity_access.xml" value="0.25416666666666665" />
+        <entry key="..\:/Madina/app/src/main/res/layout/activity_forget_password.xml" value="0.25416666666666665" />
+        <entry key="..\:/Madina/app/src/main/res/layout/activity_home.xml" value="0.2" />
+        <entry key="..\:/Madina/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/Madina/app/src/main/res/layout/activity_main.xml" value="0.10989583333333333" />
+        <entry key="..\:/Madina/app/src/main/res/layout/activity_profile.xml" value="0.25416666666666665" />
+        <entry key="..\:/Madina/app/src/main/res/layout/activity_scan.xml" value="0.25416666666666665" />
+        <entry key="..\:/Madina/app/src/main/res/layout/activity_sign.xml" value="0.24393063583815028" />
+        <entry key="..\:/Madina/app/src/main/res/layout/activity_sign_up.xml" value="0.24791666666666667" />
+        <entry key="..\:/Madina/app/src/main/res/layout/activity_signup.xml" value="0.25" />
+        <entry key="..\:/Madina/app/src/main/res/layout/bottom_sheet.xml" value="0.25416666666666665" />
+        <entry key="..\:/Madina/app/src/main/res/layout/card_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Madina/app/src/main/res/layout/fragment_needs.xml" value="0.25416666666666665" />
+        <entry key="..\:/Madina/app/src/main/res/layout/fragment_profile.xml" value="0.25416666666666665" />
+        <entry key="..\:/Madina/app/src/main/res/layout/fragment_qrc.xml" value="0.152" />
+        <entry key="..\:/Madina/app/src/main/res/layout/fragment_weekend.xml" value="0.25416666666666665" />
+        <entry key="..\:/Madina/app/src/main/res/layout/needs_recycler_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Madina/app/src/main/res/layout/profie_fragment.xml" value="0.25416666666666665" />
+        <entry key="..\:/Madina/app/src/main/res/layout/vacations_recycler.xml" value="0.25416666666666665" />
+        <entry key="..\:/Madina/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/Madina-master/app/src/main/res/drawable/circle_image_card.xml" value="0.1065" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/Madina-master/app/src/main/res/drawable/needs_background.xml" value="0.1065" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/Madina-master/app/src/main/res/layout/activity_home.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/Madina-master/app/src/main/res/layout/activity_login.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/Madina-master/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/Madina-master/app/src/main/res/layout/activity_sign.xml" value="0.1" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/Madina-master/app/src/main/res/layout/bottom_sheet.xml" value="0.2" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/Madina-master/app/src/main/res/layout/fragment_needs.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/Madina-master/app/src/main/res/layout/fragment_qrc.xml" value="0.19010416666666666" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/Madina-master/app/src/main/res/layout/needs_recycler_item.xml" value="0.19010416666666666" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/Madina-master/app/src/main/res/layout/profie_fragment.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/Madina-master/app/src/main/res/menu/bottom_nav_menu.xml" value="0.20416666666666666" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

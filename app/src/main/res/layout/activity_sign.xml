@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+<variable
+    name="svm"
+    type="com.example.madina.sign.SignViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".sign.SignActivity">
+        <ImageView
+            android:id="@+id/shape_background"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/needs_background"
+            app:layout_constraintHeight_percent="0.3"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_end="606dp" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/logoback"
+            app:layout_constraintWidth_percent="0.7"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/card"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintTop_toBottomOf="@id/guideline"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            app:cardCornerRadius="@dimen/_30sdp">
+
+
+            <ScrollView
+                android:id="@+id/scroll_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:text="@string/welcome_txt"
+                        android:textColor="@color/light_black"
+                        android:textSize="@dimen/_16sdp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_marginEnd="@dimen/_20sdp"
+                        android:text="@string/name_txt"
+                        android:textColor="@color/light_black"
+                        android:textSize="@dimen/_12sdp"
+
+                        android:textStyle="bold" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:background="@drawable/edt_txt"
+                    android:padding="@dimen/_6sdp"
+                    android:textColor="@color/black"
+                    android:hint="@string/name_txt" >
+
+                    <EditText
+                        android:id="@+id/namelayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:background="@color/white"
+                        android:text="@={svm.name}"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:textSize="12sp"
+                        app:hintAnimationEnabled="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:text="@string/ssn_txt"
+                    android:textColor="@color/light_black"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:background="@drawable/edt_txt"
+                    android:hint="@string/ssn_hint"
+                    android:padding="@dimen/_6sdp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray"
+                    app:errorEnabled="true">
+
+                    <EditText
+                        android:id="@+id/ssn_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:background="@color/white"
+                        android:text="@={svm.ssn}"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:textSize="12sp"
+                        app:hintAnimationEnabled="true" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:text="@string/phone_num"
+                    android:textColor="@color/light_black"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:background="@drawable/edt_txt"
+                    android:hint="@string/phone_num"
+                    android:padding="6dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray"
+                    app:errorEnabled="true">
+
+
+                    <EditText
+                        android:id="@+id/phoneLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:background="@color/white"
+                        android:text="@={svm.phoneNum}"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:textSize="12sp"
+                        app:hintAnimationEnabled="true" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+
+                    android:layout_width="@dimen/_54sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:text="@string/adress"
+                    android:textColor="@color/light_black"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:background="@drawable/edt_txt"
+                    android:hint="@string/adress"
+                    android:padding="@dimen/_6sdp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray"
+                    app:errorEnabled="true">
+
+                    <EditText
+                        android:id="@+id/addressLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:background="@color/white"
+                        android:text="@={svm.adress}"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:textSize="12sp"
+                        app:hintAnimationEnabled="true" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:text="@string/email_txt"
+                    android:textColor="@color/light_black"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:background="@drawable/edt_txt"
+                    android:hint="@string/email_hint"
+                    android:padding="@dimen/_6sdp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray"
+                    app:errorEnabled="true">
+
+
+                    <EditText
+                        android:id="@+id/mailLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:background="@color/white"
+                        android:text="@={svm.email}"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:textSize="12sp"
+                        app:hintAnimationEnabled="true" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:text="@string/pass_txt"
+                    android:textColor="@color/light_black"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:background="@drawable/edt_txt"
+                    android:hint="@string/pass_hint"
+                    android:padding="@dimen/_6sdp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray"
+                    app:errorEnabled="true">
+
+                    <EditText
+                        android:id="@+id/passwordLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:background="@color/white"
+                        android:text="@={svm.password}"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:textSize="12sp"
+                        app:hintAnimationEnabled="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:text="@string/coleage"
+                    android:textColor="@color/light_black"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold">
+
+                </TextView>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:background="@drawable/edt_txt"
+                    android:padding="@dimen/_6sdp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray"
+                    app:errorEnabled="true">
+
+                    <EditText
+                        android:id="@+id/colleage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:background="@color/white"
+                        android:hint="@string/coleage"
+                        android:text="@={svm.colege}"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:textSize="12sp"
+                        app:hintAnimationEnabled="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:text="@string/room_num"
+                    android:textColor="@color/light_black"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:background="@drawable/edt_txt"
+                    android:padding="@dimen/_6sdp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray"
+                    app:errorEnabled="true">
+
+                    <EditText
+                        android:id="@+id/room_num"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:background="@color/white"
+                        android:hint="@string/room_num"
+                        android:text="@={svm.roomNum}"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:textSize="12sp"
+                        app:hintAnimationEnabled="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:text="@string/building_num"
+                    android:textColor="@color/light_black"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:background="@drawable/edt_txt"
+                    android:hint="@string/building_num"
+                    android:padding="@dimen/_6sdp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray"
+                    app:errorEnabled="true">
+
+                    <EditText
+                        android:id="@+id/building_num"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:background="@color/white"
+                        android:text="@={svm.buildingNum}"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/gray"
+                        android:textSize="12sp"
+                        app:hintAnimationEnabled="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/regester_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_15sdp"
+                    android:background="@drawable/sign_in_btn_shape"
+                    android:text="@string/sign_up_btn"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold" />
+
+
+            </LinearLayout>
+        </ScrollView>
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:backgroundColor="@color/purple_700"
+    app:startDestination="@+id/navigation_add">
+
+    <fragment
+        android:id="@+id/navigation_add"
+        android:name="com.example.madina.weekend.WeekEndFragment"
+        android:label="@string/title_FAdd"
+        app:backgroundColor="@color/purple_700"
+        tools:layout="@layout/fragment_weekend" />
+
+    <fragment
+        android:id="@+id/navigation_needs"
+        android:name="com.example.madina.needs.NeedsFragment"
+        android:label="@string/title_FNeeds"
+        app:backgroundColor="@color/purple_700"
+        tools:layout="@layout/fragment_needs" />
+
+    <fragment
+        android:id="@+id/navigation_QRC"
+        android:name="com.example.madina.qrc.QRCFragment"
+        android:label="@string/title_FQRC"
+        app:backgroundColor="@color/purple_700"
+        tools:layout="@layout/fragment_qrc" />
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.madina.profile.ProfileFragment"
+        android:label="fragment_profile"
+        app:backgroundColor="@color/purple_700"
+        tools:layout="@layout/profie_fragment" />
+</navigation>
