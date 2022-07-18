@@ -52,7 +52,7 @@ class AddBottomSheetFragment: BottomSheetDialogFragment() {
     @RequiresApi(Build.VERSION_CODES.N)
     fun showeDatePicker(myView: TextView){
 
-        val myFormat ="dd/MM/yyyy"
+        val myFormat ="d/M/yyyy"
         val sdf = SimpleDateFormat(myFormat, Locale.US)
         val c= Calendar.getInstance()
         val view =myView

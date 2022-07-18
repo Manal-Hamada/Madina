@@ -36,7 +36,7 @@ class SignViewModel:BaseViewModel<Navigator>( ) {
 
     var auth = Firebase.auth
     var user:AppUser?=null
-    val profile:ProfileFragment?=null
+
 
    // lateinit var viewModel:ProfileViewModel
 
@@ -77,8 +77,9 @@ class SignViewModel:BaseViewModel<Navigator>( ) {
         addUserToFirestore(user,
             onSuccessListener = {
                 showLoading.value=false
-                userId=uid
-                Log.e("userid:",userId!!)
+               val profile=ProfileFragment()
+              //  profile.fUser=user.id.toString()
+               // Log.e("fuser:",profile.fUser.toString())
                 //checkUserFromFireStore(uid)
                 navigator?.openHomeScreen()
                                 } ,
@@ -89,7 +90,7 @@ class SignViewModel:BaseViewModel<Navigator>( ) {
     }
     fun checkUserFromFireStore(uid:String){
         showLoading.value=false
-        signIn(uid, onSuccessListener =
+        signIn(uid,AppUser.COLLECTION_NAME ,onSuccessListener =
 
         {documentSnapshot->
             val user= documentSnapshot.toObject(AppUser::class.java)

@@ -26,8 +26,9 @@ class SignActivity : BaseActivity<ActivitySignBinding,SignViewModel>(),Navigator
         //  viewModel= SignViewModel()
         viewDataBinding.svm = viewModel
         viewModel.navigator = this
-        setSpinner(viewModel.buildingNum,viewDataBinding.coleageSpiner,R.array.colages)
-        setSpinner(viewModel.colege,viewDataBinding.spiner,R.array.building_names)
+        viewDataBinding.mailLayout.fontFeatureSettings?.lowercase()
+        setSpinner(viewModel.colege,viewDataBinding.coleageSpiner,R.array.colages)
+        setSpinner(viewModel.buildingNum,viewDataBinding.spiner,R.array.building_names)
         setRegesterBtnClickListener()
 
 

@@ -48,7 +48,7 @@ class LoginViewModel:BaseViewModel<Navigator>(){
 
 
 fun checkUserFromFireStore(uid:String,task:Task<AuthResult>){
-    signIn(uid!!, onSuccessListener =
+    signIn(uid!!,AppUser.COLLECTION_NAME, onSuccessListener =
     {documentSnapshot->
         showLoading.value=false
        val user= documentSnapshot.toObject(AppUser::class.java)
@@ -60,7 +60,7 @@ fun checkUserFromFireStore(uid:String,task:Task<AuthResult>){
     }
         , onfaliurListener = {
             showLoading.value=false
-            messageLivedata.value=task.exception?.localizedMessage
+            messageLivedata.value="check your connection"
         })
 }
 

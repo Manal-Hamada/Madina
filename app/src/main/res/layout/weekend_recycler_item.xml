@@ -79,7 +79,35 @@
                 android:textSize="@dimen/_15sdp"
                 android:gravity="center"
                 />
+            <TextView
+                android:id="@+id/static_money"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/weekend_enddate"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:chainUseRtl="true"
+                android:gravity="right"
+                android:text="مستحقاتك:"
+                android:layout_marginEnd="@dimen/_5sdp"
 
+                android:textSize="@dimen/_15sdp"
+                android:textColor="@color/black"
+
+
+                />
+            <TextView
+                android:id="@+id/weekend_money"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/weekend_enddate"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/static_money"
+                android:textStyle="italic"
+
+                android:text="@{model.needs}"
+                android:textSize="@dimen/_15sdp"
+                android:gravity="center"
+                android:layout_margin="@dimen/_5sdp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

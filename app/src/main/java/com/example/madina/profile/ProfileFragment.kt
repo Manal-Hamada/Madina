@@ -21,8 +21,7 @@ class ProfileFragment:Fragment(),Navigator {
 
     var _binding: ProfieFragmentBinding? = null
     lateinit var viewModel: ProfileViewModel
-    //lateinit var viewModel2: SignViewModel
-    lateinit var proUser:AppUser
+    var arr=ArrayList<String>()
 
 
     // This property is only valid between onCreateView and
@@ -39,8 +38,8 @@ class ProfileFragment:Fragment(),Navigator {
 
         viewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
         _binding?.prvm2 = viewModel
-        //_binding?.buildingTxt?.setText("oo")
-        //logOut()
+        //_binding?.buildingTxt?.setText(fuser)
+
 
 
         _binding = ProfieFragmentBinding.inflate(inflater, container, false)
@@ -51,9 +50,8 @@ class ProfileFragment:Fragment(),Navigator {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
-        val pUid:String=viewModel.userId.toString()
-        setProfileData(pUid)
+        _binding?.progressPar?.visibility=View.VISIBLE
+        setProfile(viewModel.getUserId())
         logOut()
 
     }
@@ -88,17 +86,17 @@ class ProfileFragment:Fragment(),Navigator {
         return this.requireActivity()
     }
 
-    fun setProfileData(uid:String){
-
-        Log.e("error",viewModel.userId.toString())
-        signIn(uid, onSuccessListener =
+    fun setProfile(uid:String){
+        Log.e("error",uid)
+        signIn(uid,AppUser.COLLECTION_NAME, onSuccessListener =
         {documentSnapshot->
             val user= documentSnapshot.toObject(AppUser::class.java)
             if(user==null){
                 Log.e("error","data==null")
                 return@signIn}
             else
-                _binding?.nameTxt?.setText(user.name)
+                _binding?.progressPar?.visibility= View.GONE
+             setProfileData(user)
 
             Log.e("error","success")
         }
@@ -107,5 +105,19 @@ class ProfileFragment:Fragment(),Navigator {
             })
     }
 
+    fun setProfileData (user:AppUser){
+      //set data in array to be fitched not to load for fitching from database
+
+        _binding?.nameTxt?.setText(user.name.toString())
+        _binding?.buildingTxt?.setText(user.buildingNum.toString())
+        _binding?.phoneTxt?.setText(user.phoneNum.toString())
+        _binding?.roomTxt?.setText(user.roomNum.toString())
+        _binding?.emailTxt?.setText(user.email.toString())
+        _binding?.colageTxt?.setText(user.colleage.toString())
+
+    }
+    fun setArray(){
+
+    }
 
 }
