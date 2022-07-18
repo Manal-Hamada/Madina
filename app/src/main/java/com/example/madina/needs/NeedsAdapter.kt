@@ -6,8 +6,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.madina.R
 import com.example.madina.databinding.NeedsRecyclerItemBinding
+import com.example.madina.weekend.VacationModel
 
-class NeedsAdapter (val allNeeds:List<NeedsModel>): RecyclerView.Adapter<NeedsAdapter.NeedsViewHolder>() {
+class NeedsAdapter (val allNeeds:List<VacationModel>): RecyclerView.Adapter<NeedsAdapter.NeedsViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NeedsViewHolder {
         var item : NeedsRecyclerItemBinding = DataBindingUtil.inflate(
             LayoutInflater.from(parent.context), R.layout.needs_recycler_item,parent, false
@@ -28,7 +29,7 @@ class NeedsAdapter (val allNeeds:List<NeedsModel>): RecyclerView.Adapter<NeedsAd
 
     class NeedsViewHolder(val item : NeedsRecyclerItemBinding):RecyclerView.
     ViewHolder(item.root) {
-        fun bind(needsmodel: NeedsModel) {
+        fun bind(needsmodel: VacationModel) {
             item.model = needsmodel
             item.executePendingBindings()
         }

@@ -1,6 +1,8 @@
 package com.example.madina
 
+import android.app.Application
 import android.app.DatePickerDialog
+import android.app.ProgressDialog
 import android.content.DialogInterface
 import android.icu.util.Calendar
 import android.os.Build
@@ -20,6 +22,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.madina.databinding.BottomSheetBinding
 import com.example.madina.utils.setNegativeButton
 import com.example.madina.utils.setPositiveButton
+import com.example.madina.weekend.VacationModel
 
 import com.example.madina.weekend.WeekEndNavigator
 import com.example.madina.weekend.WeekEndViewModel
@@ -53,7 +56,6 @@ class AddBottomSheetFragment : BottomSheetDialogFragment(),WeekEndNavigator{
        viewModel= ViewModelProvider(requireActivity()).get(WeekEndViewModel::class.java)
         viewModel.navigator=this
         binding.vm=viewModel
-        binding.progressCircular.visibility=ProgressBar.GONE
         setStartDatelistener()
         setEndDatelistener()
         setconBtnListener()
@@ -86,6 +88,7 @@ class AddBottomSheetFragment : BottomSheetDialogFragment(),WeekEndNavigator{
 
         val dataPicker= DatePickerDialog(requireContext(),dataSetListener,c.get(Calendar.YEAR),
             c.get( Calendar.MONTH),c.get(Calendar.DAY_OF_MONTH))
+           dataPicker.datePicker.minDate=System.currentTimeMillis()-1000
 
         dataPicker.show()
     }
@@ -116,7 +119,7 @@ class AddBottomSheetFragment : BottomSheetDialogFragment(),WeekEndNavigator{
         binding.dateConfBtn.setOnClickListener{
              //val current : String = getNetworkDate()
             viewModel.createVacation()
-            this.dismiss()
+           // this.dismiss()
 
 
 
@@ -129,7 +132,8 @@ class AddBottomSheetFragment : BottomSheetDialogFragment(),WeekEndNavigator{
 
     override fun showDialoge(message: String?, postAction: DialogInterface.OnClickListener,
                              neg: DialogInterface.OnClickListener?) {
-        val builder = AlertDialog.Builder(requireActivity())
+
+        val builder = AlertDialog.Builder(requireContext())
         //set title for alert dialog
         builder.setTitle(
             "نتيجة الطلب المقدم للأجازة:"
@@ -142,7 +146,7 @@ class AddBottomSheetFragment : BottomSheetDialogFragment(),WeekEndNavigator{
         builder.setPositiveButton("موافق",postAction)
         //performing cancel action
         if(neg!=null){
-        builder.setNeutralButton("غير موافق",neg)}
+            builder.setNeutralButton("غير موافق",neg)}
 
         // Create the AlertDialog
         val alertDialog: AlertDialog = builder.create()
@@ -152,7 +156,29 @@ class AddBottomSheetFragment : BottomSheetDialogFragment(),WeekEndNavigator{
     }
 
     override fun controlProgressBar(b: Boolean) {
-         binding.progressCircular.isVisible=b
+    }
+
+
+    var progresDialog: ProgressDialog? = null
+    override fun showLodingDialog() {
+        progresDialog = ProgressDialog(requireActivity())
+        progresDialog?.setMessage("جاري التحميل...")
+        progresDialog?.setCancelable(false)
+        progresDialog?.show()
+    }
+
+    override fun hideLodingDialog() {
+        progresDialog?.dismiss()
+        progresDialog=null
+    }
+
+    override fun dismmissBottomSheetFragment() {
+        this.dismiss()
+        viewModel.startDate.value=""
+        viewModel.endDate.value=""
+    }
+
+    override fun listAllNeedsFromFirebase(list: MutableList<VacationModel>) {
     }
 }
 

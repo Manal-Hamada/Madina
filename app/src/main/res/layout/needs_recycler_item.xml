@@ -5,7 +5,7 @@
     <data>
         <variable
             name="model"
-            type="com.example.madina.needs.NeedsModel" />
+            type="com.example.madina.weekend.VacationModel" />
     </data>
 
 <androidx.cardview.widget.CardView
@@ -105,7 +105,7 @@
         app:layout_constraintEnd_toStartOf="@id/static_money"
         android:textStyle="italic"
 
-        android:text="@{model.needs}"
+        android:text="@{model.needsTaxes.toString()}"
         android:textSize="@dimen/_15sdp"
         android:gravity="center"
         android:layout_margin="@dimen/_5sdp" />

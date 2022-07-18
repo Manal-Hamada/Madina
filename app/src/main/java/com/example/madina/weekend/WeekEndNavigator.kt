@@ -12,5 +12,10 @@ interface WeekEndNavigator {
     )
     abstract fun controlProgressBar(b: Boolean)
 
+    abstract  fun showLodingDialog()
+
+    abstract  fun hideLodingDialog()
+    fun dismmissBottomSheetFragment()
+    fun  listAllNeedsFromFirebase(list: MutableList<VacationModel>)
 
 }

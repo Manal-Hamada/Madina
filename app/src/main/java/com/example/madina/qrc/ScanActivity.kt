@@ -1,6 +1,7 @@
 package com.example.madina.qrc
 
 import android.app.AlertDialog
+import android.app.ProgressDialog
 import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
@@ -16,7 +17,8 @@ import com.journeyapps.barcodescanner.ScanIntentResult
 import com.journeyapps.barcodescanner.ScanOptions
 
 
-class ScanActivity : AppCompatActivity() {
+class ScanActivity : AppCompatActivity()  , QrcNavigator{
+
     lateinit var binding : ActivityScanBinding
 
     lateinit var  viewModel : QRCViewModel
@@ -35,12 +37,16 @@ class ScanActivity : AppCompatActivity() {
          setContentView(binding.root)
        viewModel = ViewModelProvider(this).get(QRCViewModel::class.java)
 
-
+       viewModel.navigator=this
 
           binding?.scanBtn!!.setOnClickListener(View.OnClickListener {
               onScanBtnClick()
              // viewModel.stopProgressBar.value=""
           })
+
+        binding.cleardata.setOnClickListener {
+            viewModel.clearAllScannedQrc()
+        }
 
         observeDataFromViewModel()
 
@@ -127,11 +133,44 @@ class ScanActivity : AppCompatActivity() {
     }
 
 
+    override fun showDialoge(message: String?, postAction: DialogInterface.OnClickListener,
+                             neg: DialogInterface.OnClickListener?) {
+
+        val builder = AlertDialog.Builder(this)
+        //set title for alert dialog
+        builder.setTitle(
+            "طلب مسح الداتا الموجودة بالكامل:"
+        )
+        //set message for alert dialog
+        builder.setMessage(message)
+        //  builder.setIcon(android.R.drawable.ic_dialog_alert)
+
+        //performing positive action
+        builder.setPositiveButton("موافق",postAction)
+        //performing cancel action
+        if(neg!=null){
+            builder.setNeutralButton("غير موافق",neg)}
+
+        // Create the AlertDialog
+        val alertDialog: AlertDialog = builder.create()
+        // Set other dialog propertienas
+        alertDialog.setCancelable(false)
+        alertDialog.show()
+    }
 
 
+    lateinit var progresDialog: ProgressDialog
+    override fun showLodingDialog() {
+        progresDialog = ProgressDialog(this)
+        progresDialog?.setMessage("جاري التحميل...")
+        progresDialog?.setCancelable(false)
+        progresDialog?.show()
+    }
 
-
-
+    override fun hideLodingDialog() {
+        progresDialog?.dismiss()
+        // progresDialog=null
+    }
 
 
 
