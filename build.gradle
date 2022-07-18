@@ -3,6 +3,7 @@ buildscript {
     repositories {
         google()  // Google's Maven repository
         maven { url "https://jitpack.io" }
+
     dependencies {
        classpath 'com.google.gms:google-services:4.3.13'
        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.20'

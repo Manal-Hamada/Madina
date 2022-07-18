@@ -6,12 +6,15 @@ import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.madina.R
 import com.example.madina.databinding.ActivityScanBinding
+import com.example.madina.utils.Constants
 import com.journeyapps.barcodescanner.ScanContract
 import com.journeyapps.barcodescanner.ScanIntentResult
 import com.journeyapps.barcodescanner.ScanOptions
@@ -38,8 +41,14 @@ class ScanActivity : AppCompatActivity()  , QrcNavigator{
        viewModel = ViewModelProvider(this).get(QRCViewModel::class.java)
 
        viewModel.navigator=this
+        if(Constants.checkConnectionType(this) ==false){
+           binding!!.noWifi.setImageResource(R.drawable.wifioff)
+            binding.cleardata.visibility=Button.GONE
+            binding.scanBtn.visibility = Button.GONE
+        }else{
 
-          binding?.scanBtn!!.setOnClickListener(View.OnClickListener {
+
+        binding?.scanBtn!!.setOnClickListener(View.OnClickListener {
               onScanBtnClick()
              // viewModel.stopProgressBar.value=""
           })
@@ -49,6 +58,9 @@ class ScanActivity : AppCompatActivity()  , QrcNavigator{
         }
 
         observeDataFromViewModel()
+
+
+        }
 
     }
 

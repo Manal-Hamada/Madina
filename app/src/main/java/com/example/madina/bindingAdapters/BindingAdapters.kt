@@ -32,8 +32,7 @@ import com.journeyapps.barcodescanner.BarcodeEncoder
 
 fun generateQrc(sdn:String, imageViewQrCode:ImageView) {
 
-    imageViewQrCode.setImageDrawable(null)
-    try {
+    imageViewQrCode.post(Runnable {  try {
         Log.e("binding adabter",sdn)
 
         val barcodeEncoder = BarcodeEncoder()
@@ -47,7 +46,8 @@ fun generateQrc(sdn:String, imageViewQrCode:ImageView) {
 
 
     } catch (e: Exception) {
-    }
+    } })
+
 
 }
 

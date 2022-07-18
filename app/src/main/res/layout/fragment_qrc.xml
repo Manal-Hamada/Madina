@@ -5,15 +5,15 @@
     >
 
     <data>
-       <variable
-           name="qrCodeViewModel"
-           type="com.example.madina.qrc.QRCViewModel" />
-        <variable
-            name="qrCodeImageViewVariable"
-            type="android.widget.ImageView"/>
-        <variable
-            name="sdnEditTextValue"
-            type="String" />
+<!--       <variable-->
+<!--           name="qrCodeViewModel"-->
+<!--           type="com.example.madina.qrc.QRCViewModel" />-->
+<!--        <variable-->
+<!--            name="qrCodeImageViewVariable"-->
+<!--            type="android.widget.ImageView"/>-->
+<!--        <variable-->
+<!--            name="sdnEditTextValue"-->
+<!--            type="String" />-->
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -47,21 +47,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-       <EditText
-    android:id="@+id/qrcSnd"
-    android:layout_width="0dp"
-    android:layout_height="0dp"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintWidth_percent="0.7"
-      app:layout_constraintTop_toTopOf="@id/createQrc"
-      app:layout_constraintBottom_toBottomOf="@id/createQrc"
-      android:background="@drawable/card"
-      android:text="@={qrCodeViewModel.sdn}"
-      android:hint="@string/qrcSndHint"
-      android:gravity="center"
-      android:layout_marginRight="@dimen/_10sdp"
+<!--       <EditText-->
+<!--    android:id="@+id/qrcSnd"-->
+<!--    android:layout_width="0dp"-->
+<!--    android:layout_height="0dp"-->
+<!--    app:layout_constraintEnd_toEndOf="parent"-->
+<!--    app:layout_constraintWidth_percent="0.7"-->
+<!--      app:layout_constraintTop_toTopOf="@id/createQrc"-->
+<!--      app:layout_constraintBottom_toBottomOf="@id/createQrc"-->
+<!--      android:background="@drawable/card"-->
+<!--      android:text="@={qrCodeViewModel.sdn}"-->
+<!--      android:hint="@string/qrcSndHint"-->
+<!--      android:gravity="center"-->
+<!--      android:layout_marginRight="@dimen/_10sdp"-->
 
-      />
+<!--      />-->
 
         <ImageView
             android:id="@+id/qrc_imageview"
@@ -75,18 +75,18 @@
             android:adjustViewBounds="true"
             />
 
-        <Button
-            android:id="@+id/createQrc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/sign_in_btn_shape"
-            android:text="@string/createQrcBtn"
-            app:layout_constraintEnd_toStartOf="@id/qrcSnd"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/qrc_imageview"
-            android:layout_margin="@dimen/_15sdp"
-            app:createQrc="@{sdnEditTextValue}"
-            app:setImageView="@{qrCodeImageViewVariable}"
-            />
+<!--        <Button-->
+<!--            android:id="@+id/createQrc"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@drawable/sign_in_btn_shape"-->
+<!--            android:text="@string/createQrcBtn"-->
+<!--            app:layout_constraintEnd_toStartOf="@id/qrcSnd"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/qrc_imageview"-->
+<!--            android:layout_margin="@dimen/_15sdp"-->
+<!--            app:createQrc="@{sdnEditTextValue}"-->
+<!--            app:setImageView="@{qrCodeImageViewVariable}"-->
+<!--            />-->
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

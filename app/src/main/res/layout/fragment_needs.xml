@@ -35,7 +35,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />
-    <androidx.recyclerview.widget.RecyclerView
+
+      <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/needs_recycler"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -47,6 +48,27 @@
         tools:listitem="@layout/needs_recycler_item"
         android:layout_marginHorizontal="@dimen/_10sdp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-         />
+        />
+
+         <ImageView
+             android:id="@+id/no_data_or_internt_image"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             app:layout_constraintStart_toStartOf="@id/needs_recycler"
+             app:layout_constraintEnd_toEndOf="@id/needs_recycler"
+             app:layout_constraintTop_toTopOf="@id/needs_recycler"
+             app:layout_constraintBottom_toBottomOf="@id/needs_recycler"
+
+             />
+
+    <TextView
+        android:id="@+id/no_data_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/needs_recycler"
+        app:layout_constraintEnd_toEndOf="@id/needs_recycler"
+        app:layout_constraintTop_toBottomOf="@id/no_data_or_internt_image"
+
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

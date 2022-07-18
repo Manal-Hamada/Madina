@@ -153,7 +153,7 @@ class WeekEndViewModel : BaseViewModel<WeekEndNavigator>() {
     }
 
     private fun getUserId(): Any {
-        val user_id =FirebaseAuth.getInstance().currentUser?.uid
+        val user_id = FirebaseAuth.getInstance().currentUser?.uid
         Log.e("userid",user_id+"")
         return user_id!!
     }
@@ -196,7 +196,7 @@ class WeekEndViewModel : BaseViewModel<WeekEndNavigator>() {
 
         val df = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
         val formattedDate = df.format(c)
-        Log.e(" current date",formattedDate)
+        Log.e("current date",formattedDate)
         Log.e("start  date",startDate.value+"")
         Log.e("end date",endDate.value+"")
         return formattedDate

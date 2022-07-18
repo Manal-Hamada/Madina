@@ -10,7 +10,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import com.example.madina.R
 import com.example.madina.databinding.FragmentNeedsBinding
+import com.example.madina.utils.Constants.checkConnectionType
 import com.example.madina.weekend.VacationModel
 import com.example.madina.weekend.WeekEndNavigator
 import com.example.madina.weekend.WeekEndViewModel
@@ -38,15 +40,23 @@ class NeedsFragment:Fragment() , WeekEndNavigator {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getAllNeedsAndTaxes()
+        if(checkConnectionType(requireContext())==false){
+            _binding!!.noDataOrInterntImage.setImageResource(R.drawable.wifioff)
+        }else{
+        viewModel.getAllNeedsAndTaxes()}
 
     }
 
     private fun initRecycler(needs:MutableList<VacationModel>) {
 
 
-        val adapter : NeedsAdapter = NeedsAdapter(needs)
-        _binding?.needsRecycler?.adapter=adapter
+         if(needs.size==0){
+
+              _binding!!.noDataTextView.setText("لا يوجد مستحقات")
+          }else {
+              val adapter : NeedsAdapter = NeedsAdapter(needs)
+              _binding?.needsRecycler?.adapter=adapter
+          }
 
 
     }
