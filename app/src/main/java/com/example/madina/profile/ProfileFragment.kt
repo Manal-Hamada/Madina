@@ -1,153 +1,123 @@
 package com.example.madina.profile
 
-import android.annotation.SuppressLint
-import android.app.Activity.RESULT_CANCELED
-import android.app.Activity.RESULT_OK
-import android.app.AlertDialog
-import android.content.ContentResolver
+
 import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.os.Bundle
-import android.provider.CalendarContract.Attendees.query
-import android.provider.CalendarContract.EventDays.query
-import android.provider.MediaStore
-import android.provider.MediaStore.Video.query
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
-import com.example.madina.HomeActivity
-import com.example.madina.R
-import com.example.madina.databinding.FragmentWeekendBinding
+import com.example.madina.database.signIn
 import com.example.madina.databinding.ProfieFragmentBinding
 import com.example.madina.login.LoginActivity
-import com.example.madina.sign.SignViewModel
+import com.example.madina.model.AppUser
+import com.google.firebase.auth.FirebaseAuth
 
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class ProfileFragment:Fragment(),Navigator {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ProfileFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class ProfileFragment : Fragment(),Navigator{
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    var _binding: ProfieFragmentBinding? = null
+    lateinit var viewModel: ProfileViewModel
+    var arr=ArrayList<String>()
 
-    private var _binding: ProfieFragmentBinding? = null
+
+    // This property is only valid between onCreateView and
+    // onDestroyView.
+
     private val binding get() = _binding!!
-    lateinit var viewModel:SignViewModel
-    lateinit var viewModel2:ProfileViewModel
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-
-        viewModel= ViewModelProvider(this).get(SignViewModel::class.java)
-        viewModel2= ViewModelProvider(this).get(ProfileViewModel::class.java)
-        _binding?.prvm=viewModel
-      _binding?.prvm2=viewModel2
-      //  viewModel2.navigator=this
-        setLogoutListener()
-    }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
+    ): View {
+
+        viewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
+        _binding?.prvm2 = viewModel
+        //_binding?.buildingTxt?.setText(fuser)
+
+
+
         _binding = ProfieFragmentBinding.inflate(inflater, container, false)
         val root: View = binding.root
         return root
 
+
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ProfileFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ProfileFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        _binding?.progressPar?.visibility=View.VISIBLE
+        setProfile(viewModel.getUserId())
+        logOut()
+
+    }
+
+    fun logOut() {
+        _binding?.logoutBtn?.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            activity?.let {
+                val intent = Intent(it, LoginActivity::class.java)
+                intent.addFlags(
+                    Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+                            or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                )
+                it.startActivity(intent)
+                it.finish()
+                Log.e("error", "hi")
             }
+        }
     }
 
-    // Function for displaying an AlertDialogue for choosing an image
-    private fun selectImage() {
-        val choice = arrayOf<CharSequence>("Take Photo", "Choose from Gallery", "Cancel")
-        val myAlertDialog: AlertDialog.Builder = AlertDialog.Builder(context)
-        myAlertDialog.setTitle("Select Image")
-        myAlertDialog.setItems(choice, DialogInterface.OnClickListener { dialog, item ->
-            when {
-                // Select "Choose from Gallery" to pick image from gallery
-                choice[item] == "Choose from Gallery" -> {
-                    val pickFromGallery = Intent(
-                        Intent.ACTION_GET_CONTENT,
-                        MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-                    )
-                    pickFromGallery.type = "/image"
-                    startActivityForResult(pickFromGallery, 1)
-                }
-                // Select "Take Photo" to take a photo
-                choice[item] == "Take Photo" -> {
-                    val cameraPicture = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-                    startActivityForResult(cameraPicture, 0)
-                }
-                // Select "Cancel" to cancel the task
-                choice[item] == "Cancel" -> {
-                    myAlertDialog.setCancelable(true)
-                }
-            }
-        })
-        myAlertDialog.show()
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
-    override fun openLoginScreen(){
-        val intent = Intent(activity, LoginActivity::class.java)
-        activity?.startActivity(intent)
+    override fun openLoginScreen() {
+        val intent = Intent(this.requireActivity(), LoginActivity::class.java)
+        this.requireActivity().startActivity(intent)
     }
-    fun logOut(){
 
-        val builder = AlertDialog.Builder(requireContext())
-        builder.setTitle("Do you sure you want to logout?")
-        builder.setPositiveButton("Yes"){
-                dialogeInerface,which->
-           // navigator?.openLoginScreen()
-            openLoginScreen()
-        }
-        builder.setNegativeButton("No"){
-                dialogeInerface,which->
-        }
-        builder.setNeutralButton("Cancel"){
-                dialogeInerface,which->
-        }
-        val alertDialog: AlertDialog =builder.create()
-        alertDialog.setCancelable(true)
-        alertDialog.show()
+    override fun getContext(): Context {
+        return this.requireActivity()
     }
-    fun setLogoutListener(){
-        _binding?.logoutBtn?.setOnClickListener{
-            logOut()
+
+    fun setProfile(uid:String){
+        Log.e("error",uid)
+        signIn(uid,AppUser.COLLECTION_NAME, onSuccessListener =
+        {documentSnapshot->
+            val user= documentSnapshot.toObject(AppUser::class.java)
+            if(user==null){
+                Log.e("error","data==null")
+                return@signIn}
+            else
+                _binding?.progressPar?.visibility= View.GONE
+             setProfileData(user)
+
+            Log.e("error","success")
         }
+            , onfaliurListener = {
+                Log.e("error","fail")
+            })
     }
+
+    fun setProfileData (user:AppUser){
+      //set data in array to be fitched not to load for fitching from database
+
+        _binding?.nameTxt?.setText(user.name.toString())
+        _binding?.buildingTxt?.setText(user.buildingNum.toString())
+        _binding?.phoneTxt?.setText(user.phoneNum.toString())
+        _binding?.roomTxt?.setText(user.roomNum.toString())
+        _binding?.emailTxt?.setText(user.email.toString())
+        _binding?.colageTxt?.setText(user.colleage.toString())
+
     }
+    fun setArray(){
+
+    }
+
+}

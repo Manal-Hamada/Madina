@@ -11,6 +11,7 @@ import com.example.madina.databinding.FragmentQrcBinding
 
 class QRCFragment:Fragment() {
     private var _binding: FragmentQrcBinding? = null
+    lateinit var fUser:String
 
     // This property is only valid between onCreateView and
     // onDestroyView.

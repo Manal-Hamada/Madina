@@ -15,11 +15,13 @@ fun addUserToFirestore(user:AppUser,onSuccessListener:OnSuccessListener<Void>,on
     userDocument.set(user).addOnSuccessListener (onSuccessListener).
             addOnFailureListener(onFaliurListener)
 
+
+
 }
-fun signIn(uid:String,onSuccessListener:OnSuccessListener<DocumentSnapshot>
+fun signIn(uid:String,collectionName:String,onSuccessListener:OnSuccessListener<DocumentSnapshot>
            ,onfaliurListener:OnFailureListener){
 
-    val collectionRef=getCollection(AppUser.COLLECTION_NAME)
+    val collectionRef=getCollection(collectionName)
     collectionRef.document(uid)
         .get()
         .addOnSuccessListener (onSuccessListener)

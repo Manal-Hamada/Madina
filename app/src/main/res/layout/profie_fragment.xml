@@ -5,11 +5,9 @@
 
     <data>
 <variable
-    name="prvm"
-    type="com.example.madina.sign.SignViewModel" />
-        <variable
-            name="prvm2"
-            type="com.example.madina.profile.ProfileViewModel" />
+    name="prvm2"
+    type="com.example.madina.profile.ProfileViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -41,13 +39,6 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_begin="310dp" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_begin="275dp" />
-
     <ImageView
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -57,6 +48,8 @@
         app:layout_constraintBottom_toTopOf="@id/guideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+
 
         <ImageView
             android:id="@+id/user_logo"
@@ -68,145 +61,215 @@
             android:src="@drawable/person_icon"
             app:layout_constraintStart_toStartOf="parent"/>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginEnd="10dp"
-            android:background="@color/bottomNavBackGround"
+            android:id="@+id/card"
+            app:cardCornerRadius="@dimen/_15sdp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:layout_marginVertical="@dimen/_2sdp"
+            android:elevation="@dimen/_20sdp"
             app:layout_constraintTop_toBottomOf="@id/guideline2"
-            app:layout_constraintEnd_toEndOf="parent"
-         >
+            app:cardBackgroundColor="@color/white"
+            android:shadowColor="@color/bottomNavBackGround">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/parent_card"
+            android:layout_margin="@dimen/_10sdp"
+            >
+            <ProgressBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/progress_par"
+                app:layout_constraintTop_toBottomOf="@id/email"/>
 
             <TextView
+                android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:textStyle="bold"
+                android:gravity="right"
                 android:textColor="@color/purple_700"
-                android:paddingEnd="5dp"
-                android:layout_marginBottom="10dp"
-                android:text="الاسم الرباعي"
-                tools:ignore="HardcodedText" />
+                android:textSize="@dimen/_15sdp"
+                app:chainUseRtl="true"
+                android:text="الاسم: "
+                app:layout_constraintEnd_toEndOf="@id/parent_card"
+                app:layout_constraintTop_toTopOf="@id/parent_card"
+                android:layout_marginEnd="@dimen/_5sdp"
+
+                />
+            <TextView
+                android:id="@+id/name_txt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_margin="@dimen/_5sdp"
+                android:textSize="@dimen/_15sdp"
+                app:layout_constraintStart_toStartOf="@id/parent_card"
+                app:layout_constraintEnd_toStartOf="@id/name"
+                android:textStyle="italic"
+                tools:ignore="MissingConstraints" />
 
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/email"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/bottomNavBackGround"
-                android:text="رقم المبني"
-                android:paddingEnd="5dp"
-                android:layout_marginBottom="10dp"
+                android:gravity="right"
                 android:textColor="@color/purple_700"
-                android:textSize="14sp"
-                android:textStyle="bold" />
+                android:textSize="@dimen/_15sdp"
+                app:chainUseRtl="true"
+                android:text="الايميل:"
+                android:layout_margin="5dp"
+                app:layout_constraintEnd_toEndOf="@id/parent_card"
+                app:layout_constraintTop_toBottomOf="@id/name"
+                android:layout_marginEnd="@dimen/_5sdp"
+
+                />
+            <TextView
+                android:id="@+id/email_txt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_margin="@dimen/_5sdp"
+                android:textSize="@dimen/_15sdp"
+                app:layout_constraintStart_toStartOf="@id/parent_card"
+                app:layout_constraintTop_toBottomOf="@id/name_txt"
+                app:layout_constraintEnd_toStartOf="@id/email"
+                android:textStyle="italic"
+                tools:ignore="MissingConstraints" />
 
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/phone"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:paddingEnd="5dp"
-                android:text="رقم الغرفه"
+                android:layout_margin="5dp"
+                android:layout_marginEnd="4dp"
+                android:gravity="right"
+                android:text=" رقم الهاتف:"
                 android:textColor="@color/purple_700"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
+                android:textSize="@dimen/_15sdp"
+                app:chainUseRtl="true"
+                app:layout_constraintEnd_toEndOf="@id/parent_card"
+                app:layout_constraintTop_toBottomOf="@id/email"
+
+                />
 
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/phone_txt"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:paddingEnd="5dp"
-                android:text="رقم الهاتف"
-                android:textColor="@color/purple_700"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:paddingEnd="5dp"
-                android:text="الايميل"
-                android:textColor="@color/purple_700"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="271dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/linear_lay"
-            android:orientation="vertical"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/guideline2">
+                android:gravity="center"
+                android:layout_margin="@dimen/_5sdp"
+                android:textSize="@dimen/_15sdp"
+                app:layout_constraintStart_toStartOf="@id/parent_card"
+                app:layout_constraintTop_toBottomOf="@id/email_txt"
+                app:layout_constraintEnd_toStartOf="@id/phone"
+                android:textStyle="italic"
+                tools:ignore="MissingConstraints" />
 
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/colage"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:background="@color/bottomNavBackGround"
-                android:paddingEnd="5dp"
-                android:text="@={prvm.name}"
+                android:gravity="right"
                 android:textColor="@color/purple_700"
-                android:textSize="14sp"
-                android:textStyle="bold" />
+                android:textSize="@dimen/_15sdp"
+                app:chainUseRtl="true"
+                android:text="الكليه:"
+                android:layout_margin="5dp"
+                app:layout_constraintEnd_toEndOf="@id/parent_card"
+                app:layout_constraintTop_toBottomOf="@id/phone"
+                android:layout_marginEnd="@dimen/_5sdp"
+
+                />
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/colage_txt"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="@color/bottomNavBackGround"
-                android:text="@={prvm.buildingNum}"
-                android:paddingEnd="5dp"
-                android:layout_marginBottom="10dp"
-                android:textColor="@color/purple_700"
-                android:textSize="14sp"
-                android:textStyle="bold" />
+                android:gravity="center"
+                android:layout_margin="@dimen/_5sdp"
+                android:textSize="@dimen/_15sdp"
+                app:layout_constraintStart_toStartOf="@id/parent_card"
+                app:layout_constraintEnd_toStartOf="@id/colage"
+                app:layout_constraintTop_toBottomOf="@id/phone_txt"
+                android:textStyle="italic"
+                tools:ignore="MissingConstraints" />
 
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/building"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:paddingEnd="5dp"
-                android:text="@={prvm.roomNum}"
+                android:gravity="right"
+                android:layout_margin="@dimen/_5sdp"
                 android:textColor="@color/purple_700"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
+                android:textSize="@dimen/_15sdp"
+                app:chainUseRtl="true"
+                android:text="اسم المبني: "
+                app:layout_constraintEnd_toEndOf="@id/parent_card"
+                app:layout_constraintTop_toBottomOf="@id/colage"
+                android:layout_marginEnd="@dimen/_5sdp"
 
+                />
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/building_txt"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:paddingEnd="5dp"
-                android:text="@={prvm.phoneNum}"
+                android:gravity="center"
+                android:layout_margin="@dimen/_5sdp"
+                android:textSize="@dimen/_15sdp"
+                app:layout_constraintStart_toStartOf="@id/parent_card"
+                app:layout_constraintEnd_toStartOf="@id/building"
+                app:layout_constraintTop_toBottomOf="@id/colage_txt"
+                android:textStyle="italic"
+                tools:ignore="MissingConstraints" />
+            <TextView
+                android:id="@+id/room"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
                 android:textColor="@color/purple_700"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
+                android:textSize="@dimen/_15sdp"
+                app:chainUseRtl="true"
+                android:text="رقم الغرفه:"
+                android:layout_margin="5dp"
+                app:layout_constraintEnd_toEndOf="@id/parent_card"
+                app:layout_constraintTop_toBottomOf="@id/building"
+                android:layout_marginEnd="@dimen/_5sdp"
 
+                />
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/room_txt"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:paddingEnd="5dp"
-                android:text="@={prvm.email}"
-                android:textColor="@color/purple_700"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                tools:ignore="HardcodedText" />
-        </LinearLayout>
+                android:gravity="center"
+                android:layout_margin="@dimen/_5sdp"
+                android:textSize="@dimen/_15sdp"
+                app:layout_constraintStart_toStartOf="@id/parent_card"
+                app:layout_constraintEnd_toStartOf="@id/room"
+                app:layout_constraintTop_toBottomOf="@id/building_txt"
+                android:textStyle="italic"
+                tools:ignore="MissingConstraints" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:id="@+id/logout_btn"
-            app:layout_constraintTop_toBottomOf="@id/linear_lay"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginTop="30dp"
-            android:text="Logout"/>
+            app:layout_constraintTop_toBottomOf="@id/card"
+            android:layout_marginTop="25dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="@string/logout"
 
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

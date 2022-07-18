@@ -10,6 +10,8 @@ import com.example.madina.BaseViewModel
 import com.example.madina.LoginNavigator
 import com.example.madina.database.signIn
 import com.example.madina.model.AppUser
+import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
@@ -25,46 +27,40 @@ class LoginViewModel:BaseViewModel<Navigator>(){
 
     var fAauth :FirebaseAuth=FirebaseAuth.getInstance()
     var auth =Firebase.auth
-  fun login(){
 
+  fun login(){
       showLoading.value=true;
       auth.signInWithEmailAndPassword((email.value.toString().trim()), pass.value.toString().trim())
           .addOnCompleteListener { task ->
-              showLoading.value=false
               if (task.isSuccessful){
                   Log.e("firebase","succeful login")
                  // messageLivedata.value=task.exception?.localizedMessage
-                 //navigator?.openHomeScreen()
-                  checkUserFromFireStore(task.result.user!!
-                      .uid)
+                //navigator?.openHomeScreen()
+                 checkUserFromFireStore(task.result.user!!.uid,task)
               }
               else{
                   Log.e("firebase","faild login "+task.exception?.localizedMessage)
-                  messageLivedata.value=task.exception?.localizedMessage}
+                  messageLivedata.value=task.exception?.localizedMessage+" please reset your data"
+                  showLoading.value=false
+              }
           }
   }
 
-fun checkCurrentUser(){
 
-    val user :FirebaseUser?=fAauth.currentUser
-    if(user!=null)
-        navigator?.openHomeScreen()
-
-  }
-fun checkUserFromFireStore(uid:String){
-    showLoading.value=false
-    signIn(uid!!, onSuccessListener =
+fun checkUserFromFireStore(uid:String,task:Task<AuthResult>){
+    signIn(uid!!,AppUser.COLLECTION_NAME, onSuccessListener =
     {documentSnapshot->
+        showLoading.value=false
        val user= documentSnapshot.toObject(AppUser::class.java)
         if(user==null){
-            messageLivedata.value="Invailed email or password"
+            messageLivedata.value="there is no data attatched by this email"
         return@signIn}
         else
             navigator?.openHomeScreen()
     }
         , onfaliurListener = {
             showLoading.value=false
-            messageLivedata.value=it.localizedMessage
+            messageLivedata.value="check your connection"
         })
 }
 

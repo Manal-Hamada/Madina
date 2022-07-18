@@ -10,7 +10,7 @@
     <string name="pass_txt">كلمةالمرور</string>
 
     <string name="sign_in_btn">تسجيل دخول</string>
-
+    <string name="logout">تسجيل خروج</string>
     <string name="sign_up_btn">انشاء حساب جديد</string>
 
     <string name="email_txt">الايميل</string>
@@ -25,7 +25,7 @@
 
     <string name="ssn_hint">ادخل رقمك القومى</string>
 
-    <string name="name_txt">الاسم الرباعي باللغةالعربية</string>
+    <string name="name_txt">الاسم باللغةالعربية</string>
 
     <string name="name">الاسم  </string>
 
@@ -50,10 +50,31 @@
     <string name="access_btn"> Login as a student</string>
     <string name="coleage"> الكليه</string>
     <string name="building_num">رقم المبني</string>
-    <string name="building_hint">ادخل رقم المبني</string>
+    <string name="building_name"> اسم المبني</string>
+    <string name="building_hint">ادخل اسم المبني</string>
     <string name="room_num">رقم الغرفه</string>
     <string name="room_hint">ادخل رقم الغرفه</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="building_names">
+        <item>هاء</item>
+        <item>حاء</item>
+        <item>باء </item>
+        <item>الف</item>
+        <item>زاي</item>
+        <item>واو</item>
 
+    </string-array>
+    <string-array name="colages">
+        <item>هندسة</item>
+        <item>طب بشرى</item>
+        <item>طب اسنان</item>
+        <item>تمريض</item>
+        <item>الدراسات الاسلاميه والعربية</item>
+        <item>الدراسات لانسانية</item>
+        <item>التجارة</item>
+        <item>الاقتصاد المنزلي</item>
+        <item>التربية الرياضية</item>
+
+    </string-array>
 </resources>

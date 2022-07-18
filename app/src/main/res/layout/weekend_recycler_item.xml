@@ -1,0 +1,115 @@
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="model"
+            type="com.example.madina.weekend.WeekEndModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/_15sdp"
+        android:layout_marginHorizontal="@dimen/_5sdp"
+        android:layout_marginVertical="@dimen/_2sdp"
+        android:elevation="@dimen/_20sdp"
+        app:cardBackgroundColor="@color/white"
+        android:shadowColor="@color/bottomNavBackGround"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            >
+
+            <TextView
+                android:id="@+id/static_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="بداية أجازتك:"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_15sdp"
+                app:chainUseRtl="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginEnd="@dimen/_5sdp"
+
+                />
+
+            <TextView
+                android:id="@+id/weekend_startdate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_margin="@dimen/_5sdp"
+                android:text="@{model.startDate}"
+                android:textSize="@dimen/_15sdp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/static_start"
+                android:textStyle="italic"
+                />
+            <TextView
+                android:id="@+id/static_end"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/weekend_startdate"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:chainUseRtl="true"
+                android:gravity="right"
+                android:text="نهاية أجازتك:"
+                android:layout_marginEnd="@dimen/_5sdp"
+
+                android:textSize="@dimen/_15sdp"
+                android:textColor="@color/black"
+
+                />
+            <TextView
+                android:id="@+id/weekend_enddate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
+                app:layout_constraintTop_toBottomOf="@id/weekend_startdate"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/static_end"
+                android:textStyle="italic"
+                android:text="@{model.endDate}"
+                android:textSize="@dimen/_15sdp"
+                android:gravity="center"
+                />
+            <TextView
+                android:id="@+id/static_money"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/weekend_enddate"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:chainUseRtl="true"
+                android:gravity="right"
+                android:text="مستحقاتك:"
+                android:layout_marginEnd="@dimen/_5sdp"
+
+                android:textSize="@dimen/_15sdp"
+                android:textColor="@color/black"
+
+
+                />
+            <TextView
+                android:id="@+id/weekend_money"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/weekend_enddate"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/static_money"
+                android:textStyle="italic"
+
+                android:text="@{model.needs}"
+                android:textSize="@dimen/_15sdp"
+                android:gravity="center"
+                android:layout_margin="@dimen/_5sdp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

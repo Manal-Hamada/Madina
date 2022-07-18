@@ -21,7 +21,6 @@ class LoginActivity :BaseActivity<ActivityLoginBinding,LoginViewModel>(),Navigat
 
         viewDataBinding.lvm= viewModel
         viewModel.navigator=this
-        viewModel.checkCurrentUser()
          setLoginBtnClickListener()
          viewModel.resetPass()
 
@@ -57,6 +56,8 @@ class LoginActivity :BaseActivity<ActivityLoginBinding,LoginViewModel>(),Navigat
 
     override fun openHomeScreen() {
        val intent =Intent(this,HomeActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+                or Intent.FLAG_ACTIVITY_CLEAR_TASK)
         startActivity(intent)
     }
 
@@ -76,5 +77,9 @@ class LoginActivity :BaseActivity<ActivityLoginBinding,LoginViewModel>(),Navigat
 
     override fun initViewModel(): LoginViewModel {
         return ViewModelProvider(this).get(LoginViewModel::class.java)
+    }
+    override fun onPause() {
+        super.onPause()
+        hideLoading()
     }
 }
